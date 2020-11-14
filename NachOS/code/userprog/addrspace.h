@@ -20,8 +20,7 @@
 
 class AddrSpace {
   public:
-    static bool PageStatus[NumPhysPages];
-    static int Freepages;
+    int Freepages;
     AddrSpace();			// Create an address space.
     ~AddrSpace();			// De-allocate an address space
 

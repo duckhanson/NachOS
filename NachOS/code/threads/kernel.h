@@ -69,6 +69,7 @@ class Kernel {
     PostOfficeInput *postOfficeIn;
     PostOfficeOutput *postOfficeOut;
     bool usedPhyPage[NumPhysPages];
+    int freePhyPages;
     int hostName;               // machine identifier
 
   private:

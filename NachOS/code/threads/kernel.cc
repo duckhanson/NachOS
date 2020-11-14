@@ -106,6 +106,9 @@ Kernel::Initialize()
     synchConsoleIn = new SynchConsoleInput(consoleIn); // input from stdin
     synchConsoleOut = new SynchConsoleOutput(consoleOut); // output to stdout
     synchDisk = new SynchDisk();    //
+    for(size_t i = 0; i < NumPhysPages; i++)
+        usedPhyPage[i] = FALSE;
+    freePhyPages = NumPhysPages;
 #ifdef FILESYS_STUB
     fileSystem = new FileSystem();
 #else
