@@ -15,10 +15,10 @@
 // All rights reserved.  See copyright.h for copyright notice and limitation
 // of liability and disclaimer of warranty provisions.
 
-#include "addrspace.h"
 #include "copyright.h"
-#include "machine.h"
 #include "main.h"
+#include "addrspace.h"
+#include "machine.h"
 #include "noff.h"
 
 //----------------------------------------------------------------------
@@ -73,7 +73,7 @@ AddrSpace::AddrSpace() {
     // 	pageTable[i].readOnly = FALSE;
     //     }
 
-    // zero out the entire address space
+    // // zero out the entire address space
     //    bzero(kernel->machine->mainMemory, MemorySize);
 }
 
@@ -139,7 +139,7 @@ bool AddrSpace::Load(char *fileName) {
         while (j < NumPhysPages && kernel->usedPhyPage[j] == true)
             j++;
         kernel->usedPhyPage[j] = true;
-        kernel->freePhyPages--;
+        // kernel->freePhyPages--;
 
         bzero(&kernel->machine->mainMemory[j * PageSize], PageSize);
         pageTable[i].physicalPage = j;
