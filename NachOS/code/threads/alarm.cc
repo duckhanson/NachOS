@@ -50,6 +50,6 @@ Alarm::CallBack()
     MachineStatus status = interrupt->getStatus();
     
     if (status != IdleMode) {
-	interrupt->YieldOnReturn();
-    }
+	    interrupt->YieldOnReturn();
+    }   
 }

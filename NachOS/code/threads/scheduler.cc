@@ -30,16 +30,28 @@
 //----------------------------------------------------------------------
 
 Scheduler::Scheduler() {
-    readyList = new List<Thread *>;
+    L1List = new SortedList<Thread *>(CompareSJF); // L1 queue, preemptive
+    L2List = new SortedList<Thread *>(ComparePriority); // L2 queue, non-preemptive
+    L3List = new SortedList<Thread *>(CompareRR); // L3 queue
     toBeDestroyed = NULL;
 }
-
+int Scheduler::CompareRR(Thread *x, Thread *y) { return 1; }
+int Scheduler::CompareSJF(Thread *x, Thread *y) {
+    return x->getBurstTime() - y->getBurstTime();
+}
+int Scheduler::ComparePriority(Thread *x, Thread *y) {
+    return y->getPriority() - x->getPriority();
+}
 //----------------------------------------------------------------------
 // Scheduler::~Scheduler
 // 	De-allocate the list of ready threads.
 //----------------------------------------------------------------------
 
-Scheduler::~Scheduler() { delete readyList; }
+Scheduler::~Scheduler() { 
+    delete L1List;
+    delete L2List;
+    delete L3List;
+}
 
 //----------------------------------------------------------------------
 // Scheduler::ReadyToRun
@@ -54,7 +66,13 @@ void Scheduler::ReadyToRun(Thread *thread) {
     DEBUG(dbgThread, "Putting thread on ready list: " << thread->getName());
     // cout << "Putting thread on ready list: " << thread->getName() << endl ;
     thread->setStatus(READY);
-    readyList->Append(thread);
+    if (thread->getPriority() < 50) {
+        L3List->Insert(thread);
+    } else if (thread->getPriority() < 100) {
+        L2List->Insert(thread);
+    } else if (thread->getPriority() < 150) {
+        L1List->Insert(thread);
+    }
 }
 
 //----------------------------------------------------------------------
@@ -68,10 +86,14 @@ void Scheduler::ReadyToRun(Thread *thread) {
 Thread *Scheduler::FindNextToRun() {
     ASSERT(kernel->interrupt->getLevel() == IntOff);
 
-    if (readyList->IsEmpty()) {
-        return NULL;
+    if (!L1List->IsEmpty()) {
+        return L1List->RemoveFront();
+    } else if (!L2List->IsEmpty()){
+        return L2List->RemoveFront();
+    } else if (!L3List->IsEmpty()) {
+        return L3List->RemoveFront();
     } else {
-        return readyList->RemoveFront();
+        return NULL;
     }
 }
 
@@ -112,7 +134,7 @@ void Scheduler::Run(Thread *nextThread, bool finishing) {
 
     kernel->currentThread = nextThread; // switch to the next thread
     nextThread->setStatus(RUNNING);     // nextThread is now running
-
+    nextThread->setStartTime(kernel->stats->totalTicks);
     DEBUG(dbgThread, "Switching from: " << oldThread->getName()
                                         << " to: " << nextThread->getName());
 
@@ -162,5 +184,7 @@ void Scheduler::CheckToBeDestroyed() {
 //----------------------------------------------------------------------
 void Scheduler::Print() {
     cout << "Ready list contents:\n";
-    readyList->Apply(ThreadPrint);
+    L1List->Apply(ThreadPrint);
+    L2List->Apply(ThreadPrint);
+    L3List->Apply(ThreadPrint);
 }

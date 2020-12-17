@@ -88,31 +88,43 @@ class Thread {
 
     void Fork(VoidFunctionPtr func, void *arg);
     // Make thread run (*func)(arg)
-    void Yield(); // Relinquish the CPU if any
-                  // other thread is runnable
+    void Yield();               // Relinquish the CPU if any
+                                // other thread is runnable
     void Sleep(bool finishing); // Put the thread to sleep and
                                 // relinquish the processor
-    void Begin();  // Startup code for the thread
-    void Finish(); // The thread is done executing
+    void Begin();               // Startup code for the thread
+    void Finish();              // The thread is done executing
 
     void CheckOverflow(); // Check if thread stack has overflowed
     void setStatus(ThreadStatus st) { status = st; }
     ThreadStatus getStatus() { return (status); }
-    char *getName() { return (name); }
 
+    char *getName() { return (name); }
     int getID() { return (ID); }
     void Print() { cout << name; }
     void SelfTest(); // test whether thread impl is working
-
+    void setBurstTime(int t) { burstTime = t; }
+    int getBurstTime() { return burstTime; }
+    void setStartTime(int t) { startTime = t; }
+    int getStartTime() { return startTime; }
+    void setPriority(int t) { execPriority = t; }
+    int getPriority() { return execPriority; }
+    void setYieldBurstTime(int t) { yieldBurstTime = t; }
+    int getYieldBurstTime() { return yieldBurstTime; }
+    
   private:
     // some of the private data for this class is listed above
 
-    int *stack; // Bottom of the stack
-                // NULL if this is the main thread
-                // (If NULL, don't deallocate stack)
+    int *stack;          // Bottom of the stack
+                         // NULL if this is the main thread
+                         // (If NULL, don't deallocate stack)
     ThreadStatus status; // ready, running or blocked
     char *name;
     int ID;
+    int burstTime = 0;
+    int startTime = 0;
+    int execPriority = 0;
+    int yieldBurstTime = 0;
     void StackAllocate(VoidFunctionPtr func, void *arg);
     // Allocate a stack for thread.
     // Used internally by Fork()

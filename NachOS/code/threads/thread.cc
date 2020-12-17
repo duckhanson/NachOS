@@ -154,7 +154,7 @@ void Thread::Begin() {
 //	or the execution stack, because we're still running in the thread
 //	and we're still on the stack!  Instead, we tell the scheduler
 //	to call the destructor, once it is running in the context of a different
-//thread.
+// thread.
 //
 // 	NOTE: we disable interrupts, because Sleep() assumes interrupts
 //	are disabled.
@@ -195,7 +195,7 @@ void Thread::Yield() {
     ASSERT(this == kernel->currentThread);
 
     DEBUG(dbgThread, "Yielding thread: " << name);
-
+    yieldBurstTime += (kernel->stats->totalTicks - startTime);
     nextThread = kernel->scheduler->FindNextToRun();
     if (nextThread != NULL) {
         kernel->scheduler->ReadyToRun(this);
@@ -233,6 +233,10 @@ void Thread::Sleep(bool finishing) {
     DEBUG(dbgThread, "Sleeping thread: " << name);
     DEBUG(dbgTraCode, "In Thread::Sleep, Sleeping thread: "
                           << name << ", " << kernel->stats->totalTicks);
+
+    int curBurstTime = kernel->stats->totalTicks - startTime + yieldBurstTime;
+    int nextBurstTime = 0.5 * curBurstTime + 0.5 * this->getBurstTime();
+    this->setBurstTime(nextBurstTime);
 
     status = BLOCKED;
     // cout << "debug Thread::Sleep " << name << "wait for Idle\n";
