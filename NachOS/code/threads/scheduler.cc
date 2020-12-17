@@ -31,8 +31,10 @@
 
 Scheduler::Scheduler() {
     L1List = new SortedList<Thread *>(CompareSJF); // L1 queue, preemptive
-    L2List = new SortedList<Thread *>(ComparePriority); // L2 queue, non-preemptive
-    L3List = new SortedList<Thread *>(CompareRR); // L3 queue
+    L2List =
+        new SortedList<Thread *>(ComparePriority); // L2 queue, non-preemptive
+    L3List = new SortedList<Thread *>(CompareRR);  // L3 queue
+    schedulerType = SJF;
     toBeDestroyed = NULL;
 }
 int Scheduler::CompareRR(Thread *x, Thread *y) { return 1; }
@@ -47,7 +49,7 @@ int Scheduler::ComparePriority(Thread *x, Thread *y) {
 // 	De-allocate the list of ready threads.
 //----------------------------------------------------------------------
 
-Scheduler::~Scheduler() { 
+Scheduler::~Scheduler() {
     delete L1List;
     delete L2List;
     delete L3List;
@@ -74,7 +76,44 @@ void Scheduler::ReadyToRun(Thread *thread) {
         L1List->Insert(thread);
     }
 }
-
+bool Scheduler::isPreemptive() {
+    if (schedulerType == SJF)
+        return false;
+    else
+        return true;
+}
+void Scheduler::ageUpdate() {
+    SortedList<Thread *> *nL1List = new SortedList<Thread *>(CompareSJF);      // new L1 queue, preemptive
+    SortedList<Thread *> *nL2List = new SortedList<Thread *>(ComparePriority); // new L2 queue, non-preemptive
+    SortedList<Thread *> *nL3List = new SortedList<Thread *>(CompareRR);       // new L3 queue
+    Thread *t;
+    while (!L1List->IsEmpty()) {
+        t = L1List->RemoveFront();
+        t->setPriority(t->getPriority() - 10);
+        nL1List->Insert(t);
+    }
+    while (!L2List->IsEmpty()) {
+        t = L2List->RemoveFront();
+        t->setPriority(t->getPriority() - 10);
+        if (t->getPriority() < 50) {
+            nL1List->Insert(t);
+        } else {
+            nL2List->Insert(t);
+        }
+    }
+    while (!L3List->IsEmpty()) {
+        t = L3List->RemoveFront();
+        t->setPriority(t->getPriority() - 10);
+        if (t->getPriority() < 100) {
+            nL2List->Insert(t);
+        } else {
+            nL3List->Insert(t);
+        }
+    }
+    L1List = nL1List;
+    L2List = nL2List;
+    L3List = nL3List;
+}
 //----------------------------------------------------------------------
 // Scheduler::FindNextToRun
 // 	Return the next thread to be scheduled onto the CPU.
@@ -87,10 +126,13 @@ Thread *Scheduler::FindNextToRun() {
     ASSERT(kernel->interrupt->getLevel() == IntOff);
 
     if (!L1List->IsEmpty()) {
+        schedulerType = SJF;
         return L1List->RemoveFront();
-    } else if (!L2List->IsEmpty()){
+    } else if (!L2List->IsEmpty()) {
+        schedulerType = Priority;
         return L2List->RemoveFront();
     } else if (!L3List->IsEmpty()) {
+        schedulerType = RR;
         return L3List->RemoveFront();
     } else {
         return NULL;

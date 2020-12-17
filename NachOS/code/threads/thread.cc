@@ -39,6 +39,10 @@ Thread::Thread(char *threadName, int threadID) {
     stackTop = NULL;
     stack = NULL;
     status = JUST_CREATED;
+    burstTime = 0;
+    startTime = 0;
+    execPriority = 0;
+    yieldBurstTime = 0;
     for (int i = 0; i < MachineStateSize; i++) {
         machineState[i] = NULL; // not strictly necessary, since
                                 // new thread ignores contents

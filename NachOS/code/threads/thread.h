@@ -121,10 +121,10 @@ class Thread {
     ThreadStatus status; // ready, running or blocked
     char *name;
     int ID;
-    int burstTime = 0;
-    int startTime = 0;
-    int execPriority = 0;
-    int yieldBurstTime = 0;
+    int burstTime;
+    int startTime;
+    int execPriority;
+    int yieldBurstTime;
     void StackAllocate(VoidFunctionPtr func, void *arg);
     // Allocate a stack for thread.
     // Used internally by Fork()

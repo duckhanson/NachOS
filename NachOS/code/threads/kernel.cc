@@ -29,6 +29,7 @@ Kernel::Kernel(int argc, char **argv) {
     debugUserProg = FALSE;
     consoleIn = NULL;  // default is stdin
     consoleOut = NULL; // default is stdout
+    execfilePriority[10] = {0};
 #ifndef FILESYS_STUB
     formatFlag = FALSE;
 #endif
@@ -52,7 +53,7 @@ Kernel::Kernel(int argc, char **argv) {
             execfile[++execfileNum] = argv[++i];
             cout << execfile[execfileNum] << "\n";
             execfilePriority[execfileNum] = atoi(argv[++i]);
-            cout << execfilePriority[execfileNum] << "\n"; 
+            cout << execfilePriority[execfileNum] << "\n";
         } else if (strcmp(argv[i], "-ci") == 0) {
             ASSERT(i + 1 < argc);
             consoleIn = argv[i + 1];
@@ -116,8 +117,8 @@ void Kernel::Initialize() {
 #else
     fileSystem = new FileSystem(formatFlag);
 #endif // FILESYS_STUB
-    postOfficeIn = new PostOfficeInput(10);
-    postOfficeOut = new PostOfficeOutput(reliability);
+    // postOfficeIn = new PostOfficeInput(10);
+    // postOfficeOut = new PostOfficeOutput(reliability);
 
     interrupt->Enable();
 }
@@ -137,8 +138,8 @@ Kernel::~Kernel() {
     delete synchConsoleOut;
     delete synchDisk;
     delete fileSystem;
-    delete postOfficeIn;
-    delete postOfficeOut;
+    // delete postOfficeIn;
+    // delete postOfficeOut;
 
     Exit(0);
 }

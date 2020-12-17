@@ -34,12 +34,16 @@ class Scheduler {
     static int CompareRR(Thread* x, Thread* y);
     static int CompareSJF(Thread* x, Thread* y);
     static int ComparePriority(Thread* x, Thread* y);
+    bool isPreemptive();
+    void ageUpdate();
     // SelfTest for scheduler is implemented in class Thread
 
   private:
     SortedList<Thread *> *L1List; // L1 queue, preemptive
     SortedList<Thread *> *L2List; // L2 queue, non-preemptive
     SortedList<Thread *> *L3List; // L3 queue
+    enum scheType{RR, SJF, Priority};
+    scheType schedulerType;
     Thread *toBeDestroyed; // finishing thread to be destroyed
                            // by the next thread that runs
 };
