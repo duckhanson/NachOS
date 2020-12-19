@@ -107,11 +107,13 @@ class Thread {
     int getBurstTime() { return burstTime; }
     void setStartTime(int t) { startTime = t; }
     int getStartTime() { return startTime; }
-    void setPriority(int t) { execPriority = t; }
+    void setPriority(int t);
     int getPriority() { return execPriority; }
-    void setYieldBurstTime(int t) { yieldBurstTime = t; }
-    int getYieldBurstTime() { return yieldBurstTime; }
-    
+    void setAccumulatedTime(int t) { accumulatedTime = t; }
+    int getAccumulatedTime() { return accumulatedTime; }
+    void resetWaitingAge() { waitingAge = 0; }
+    bool increaseAge();
+
   private:
     // some of the private data for this class is listed above
 
@@ -124,7 +126,8 @@ class Thread {
     int burstTime;
     int startTime;
     int execPriority;
-    int yieldBurstTime;
+    int waitingAge;
+    int accumulatedTime;
     void StackAllocate(VoidFunctionPtr func, void *arg);
     // Allocate a stack for thread.
     // Used internally by Fork()

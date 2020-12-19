@@ -22,7 +22,6 @@
 
 Alarm::Alarm(bool doRandom) {
     timer = new Timer(doRandom, this);
-    agingCounter = 0;
 }
 
 //----------------------------------------------------------------------
@@ -48,12 +47,8 @@ void Alarm::CallBack() {
     MachineStatus status = interrupt->getStatus();
     //---------------------------------------------------------------------
     // aging mechanism
-    agingCounter++;
-    if ((agingCounter / 15) == 1) {
-        agingCounter = 0;
-        kernel->scheduler->ageUpdate();
-    }
-
+    kernel->scheduler->ageUpdate();
+    
     //--------------------------------------------
     // only preemptive needs call yield on return.
     if (status != IdleMode && kernel->scheduler->isPreemptive()) {

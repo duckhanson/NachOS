@@ -36,6 +36,7 @@ class Scheduler {
     static int ComparePriority(Thread* x, Thread* y);
     bool isPreemptive();
     void ageUpdate();
+    int getQueueLabel();
     // SelfTest for scheduler is implemented in class Thread
 
   private:

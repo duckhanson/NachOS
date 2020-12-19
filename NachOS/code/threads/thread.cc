@@ -41,8 +41,9 @@ Thread::Thread(char *threadName, int threadID) {
     status = JUST_CREATED;
     burstTime = 0;
     startTime = 0;
+    waitingAge = 0;
     execPriority = 0;
-    yieldBurstTime = 0;
+    accumulatedTime = 0;
     for (int i = 0; i < MachineStateSize; i++) {
         machineState[i] = NULL; // not strictly necessary, since
                                 // new thread ignores contents
@@ -199,7 +200,7 @@ void Thread::Yield() {
     ASSERT(this == kernel->currentThread);
 
     DEBUG(dbgThread, "Yielding thread: " << name);
-    yieldBurstTime += (kernel->stats->totalTicks - startTime);
+    accumulatedTime += (kernel->stats->totalTicks - startTime);
     nextThread = kernel->scheduler->FindNextToRun();
     if (nextThread != NULL) {
         kernel->scheduler->ReadyToRun(this);
@@ -207,7 +208,22 @@ void Thread::Yield() {
     }
     (void)kernel->interrupt->SetLevel(oldLevel);
 }
-
+bool Thread::increaseAge() {
+    waitingAge++;
+    if (waitingAge == 15) {
+        waitingAge = 0;
+        return true;
+    }
+    return false;
+}
+void Thread::setPriority(int t) { 
+    if (t < 0)
+        execPriority = 0;
+    else if (t > 149)
+        execPriority = 149;
+    else
+        execPriority = t; 
+}
 //----------------------------------------------------------------------
 // Thread::Sleep
 // 	Relinquish the CPU, because the current thread has either
@@ -238,10 +254,12 @@ void Thread::Sleep(bool finishing) {
     DEBUG(dbgTraCode, "In Thread::Sleep, Sleeping thread: "
                           << name << ", " << kernel->stats->totalTicks);
 
-    int curBurstTime = kernel->stats->totalTicks - startTime + yieldBurstTime;
-    int nextBurstTime = 0.5 * curBurstTime + 0.5 * this->getBurstTime();
+    accumulatedTime += (kernel->stats->totalTicks - startTime);
+    int nextBurstTime = 0.5 * accumulatedTime + 0.5 * burstTime;
+    DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << ID << " ] "
+                             << "update approximate burst time, from : [ " << burstTime << " ], add [ " << accumulatedTime << " ], to [ " << nextBurstTime << " ]");
     this->setBurstTime(nextBurstTime);
-
+    DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << ID << " ] is removed from queue L[ " << kernel->scheduler->getQueueLabel() << " ]");
     status = BLOCKED;
     // cout << "debug Thread::Sleep " << name << "wait for Idle\n";
     while ((nextThread = kernel->scheduler->FindNextToRun()) == NULL) {

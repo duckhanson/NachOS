@@ -34,7 +34,7 @@ Scheduler::Scheduler() {
     L2List =
         new SortedList<Thread *>(ComparePriority); // L2 queue, non-preemptive
     L3List = new SortedList<Thread *>(CompareRR);  // L3 queue
-    schedulerType = SJF;
+    schedulerType = Priority;
     toBeDestroyed = NULL;
 }
 int Scheduler::CompareRR(Thread *x, Thread *y) { return 1; }
@@ -68,16 +68,30 @@ void Scheduler::ReadyToRun(Thread *thread) {
     DEBUG(dbgThread, "Putting thread on ready list: " << thread->getName());
     // cout << "Putting thread on ready list: " << thread->getName() << endl ;
     thread->setStatus(READY);
-    if (thread->getPriority() < 50) {
-        L3List->Insert(thread);
-    } else if (thread->getPriority() < 100) {
-        L2List->Insert(thread);
-    } else if (thread->getPriority() < 150) {
+    size_t label;
+    if (thread->getPriority() > 99) {
+        label = 1;
         L1List->Insert(thread);
+    } else if (thread->getPriority() > 49) {
+        label = 2;
+        L2List->Insert(thread);
+    } else {
+        label = 3;
+        L3List->Insert(thread);
     }
+    // thread->resetWaitingAge();
+    DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << thread->getID() << " ] "<< "is inserted into queue L[ " << label << " ]");
+}
+int Scheduler::getQueueLabel() {
+    if (schedulerType == SJF)
+        return 1;
+    else if (schedulerType == Priority)
+        return 2;
+    else
+        return 3;
 }
 bool Scheduler::isPreemptive() {
-    if (schedulerType == SJF)
+    if (schedulerType == Priority)
         return false;
     else
         return true;
@@ -87,15 +101,26 @@ void Scheduler::ageUpdate() {
     SortedList<Thread *> *nL2List = new SortedList<Thread *>(ComparePriority); // new L2 queue, non-preemptive
     SortedList<Thread *> *nL3List = new SortedList<Thread *>(CompareRR);       // new L3 queue
     Thread *t;
+    size_t oldPriority;
     while (!L1List->IsEmpty()) {
         t = L1List->RemoveFront();
-        t->setPriority(t->getPriority() - 10);
+        if (t->increaseAge()){
+            oldPriority = t->getPriority();
+            t->setPriority(oldPriority + 10);
+            DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << t->getID() << " ] "
+                                    << "changes its priority from [" << oldPriority << "] to [" << t->getPriority() << "]");
+        }
         nL1List->Insert(t);
     }
     while (!L2List->IsEmpty()) {
         t = L2List->RemoveFront();
-        t->setPriority(t->getPriority() - 10);
-        if (t->getPriority() < 50) {
+        if (t->increaseAge()) {
+            oldPriority = t->getPriority();
+            t->setPriority(oldPriority + 10);
+            DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << t->getID() << " ] "
+                                    << "changes its priority from [" << oldPriority << "] to [" << t->getPriority() << "]");
+        }
+        if (t->getPriority() > 99) {
             nL1List->Insert(t);
         } else {
             nL2List->Insert(t);
@@ -103,8 +128,13 @@ void Scheduler::ageUpdate() {
     }
     while (!L3List->IsEmpty()) {
         t = L3List->RemoveFront();
-        t->setPriority(t->getPriority() - 10);
-        if (t->getPriority() < 100) {
+        if (t->increaseAge()) {
+            oldPriority = t->getPriority();
+            t->setPriority(oldPriority + 10);
+            DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << t->getID() << " ] "
+                                    << "changes its priority from [" << oldPriority << "] to [" << t->getPriority() << "]");
+        }
+        if (t->getPriority() > 49) {
             nL2List->Insert(t);
         } else {
             nL3List->Insert(t);
@@ -179,6 +209,7 @@ void Scheduler::Run(Thread *nextThread, bool finishing) {
     nextThread->setStartTime(kernel->stats->totalTicks);
     DEBUG(dbgThread, "Switching from: " << oldThread->getName()
                                         << " to: " << nextThread->getName());
+    DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << nextThread->getID() << " ] is now selected for execution, thread [ " << oldThread->getID() << " ] is replaced, and it has executed [ " << oldThread->getAccumulatedTime() << " ] ticks.");
 
     // This is a machine-dependent assembly language routine defined
     // in switch.s.  You may have to think
