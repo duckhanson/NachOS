@@ -259,7 +259,6 @@ void Thread::Sleep(bool finishing) {
     DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << ID << " ] "
                              << "update approximate burst time, from : [ " << burstTime << " ], add [ " << nextBurstTime - (double) burstTime << " ], to [ " << nextBurstTime << " ]");
     this->setBurstTime(nextBurstTime);
-    this->resetWaitingAge();
     DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << ID << " ] is removed from queue L[ " << kernel->scheduler->getQueueLabel() << " ]");
     status = BLOCKED;
     // cout << "debug Thread::Sleep " << name << "wait for Idle\n";
