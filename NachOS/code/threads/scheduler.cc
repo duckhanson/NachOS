@@ -91,10 +91,9 @@ int Scheduler::getQueueLabel() {
         return 3;
 }
 bool Scheduler::isPreemptive() {
-    if (schedulerType == Priority)
+    if ((schedulerType == Priority) or (schedulerType == SJF && L1List->IsEmpty()))
         return false;
-    else
-        return true;
+    return true;
 }
 void Scheduler::ageUpdate() {
     SortedList<Thread *> *nL1List = new SortedList<Thread *>(CompareSJF);      // new L1 queue, preemptive

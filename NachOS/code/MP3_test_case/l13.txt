@@ -1,0 +1,1578 @@
+Entering main
+Forking thread: hw3t1 f(a): 134563378 0x977c798
+Putting thread on ready list: hw3t1
+Tick [ 10 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Forking thread: hw3t2 f(a): 134563378 0x97849c0
+Putting thread on ready list: hw3t2
+Tick [ 20 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Finishing thread: main
+Sleeping thread: main
+Tick [ 30 ]: Thread [ 0 ] update approximate burst time, from : [ 0 ], add [ 15 ], to [ 15 ]
+Tick [ 30 ]: Thread [ 0 ] is removed from queue L[ 2 ]
+Switching from: main to: hw3t1
+Tick [ 30 ]: Thread [ 1 ] is now selected for execution, thread [ 0 ] is replaced, and it has executed [ 30 ] ticks.
+Beginning thread: hw3t1
+Deleting thread: main
+Sleeping thread: hw3t1
+Tick [ 69 ]: Thread [ 1 ] update approximate burst time, from : [ 0 ], add [ 19.5 ], to [ 19.5 ]
+Tick [ 69 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 69 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 39 ] ticks.
+Beginning thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 79 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Sleeping thread: hw3t2
+Tick [ 98 ]: Thread [ 2 ] update approximate burst time, from : [ 0 ], add [ 14.5 ], to [ 14.5 ]
+Tick [ 98 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 98 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 29 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 118 ]: Thread [ 1 ] update approximate burst time, from : [ 19.5 ], add [ 24.75 ], to [ 44.25 ]
+Tick [ 118 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Putting thread on ready list: hw3t1
+Tick [ 119 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t1
+Tick [ 119 ]: Thread [ 1 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 69 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 129 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 208 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 208 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 158 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 218 ]: Thread [ 2 ] update approximate burst time, from : [ 14.5 ], add [ 12.25 ], to [ 26.75 ]
+Tick [ 218 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 218 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 39 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 228 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 308 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 308 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 248 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 318 ]: Thread [ 2 ] update approximate burst time, from : [ 26.75 ], add [ 11.125 ], to [ 37.875 ]
+Tick [ 318 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 318 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 49 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 328 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 408 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 408 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 338 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 508 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 508 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 149 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 608 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 608 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 438 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 708 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 708 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 249 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 808 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 808 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 538 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 908 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 908 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 349 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 1008 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 1008 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 638 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 1108 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 1108 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 449 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 1208 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 1208 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 738 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 1308 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 1308 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 549 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 1408 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 1408 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 838 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 1508 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 1508 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 649 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 1608 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 1608 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 938 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 1708 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 1708 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 749 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 1808 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 1808 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1038 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 1908 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 1908 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 849 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 2008 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 2008 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1138 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 2108 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 2108 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 949 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 2203 ]: Thread [ 1 ] update approximate burst time, from : [ 44.25 ], add [ 594.375 ], to [ 638.625 ]
+Tick [ 2203 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 2203 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1233 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 2213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 2213 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 2213 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 959 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 2223 ]: Thread [ 1 ] update approximate burst time, from : [ 638.625 ], add [ 302.188 ], to [ 940.812 ]
+Tick [ 2223 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 2223 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1243 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 2233 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 2313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 2313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1049 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 2413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 2413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1343 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 2513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 2513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1149 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 2613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 2613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1443 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 2687 ]: Thread [ 2 ] update approximate burst time, from : [ 37.875 ], add [ 592.562 ], to [ 630.438 ]
+Tick [ 2687 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 2687 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1223 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 2697 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 2713 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 2713 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1469 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 2723 ]: Thread [ 2 ] update approximate burst time, from : [ 630.438 ], add [ 301.281 ], to [ 931.719 ]
+Tick [ 2723 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 2723 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1233 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 2733 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 2813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 2813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1559 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 2913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 2913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1333 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 3013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 3013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1659 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 3113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 3113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1433 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 3213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 3213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1759 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 3313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 3313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1533 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 3413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 3413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1859 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 3513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 3513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1633 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 3613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 3613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 1959 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 3713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 3713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1733 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 3813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 3813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2059 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 3913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 3913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1833 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 4013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 4013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2159 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 4113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 4113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 1933 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 4213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 4213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2259 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 4313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 4313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2033 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 4413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 4413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2359 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 4513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 4513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2133 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 4571 ]: Thread [ 1 ] update approximate burst time, from : [ 940.812 ], add [ 738.094 ], to [ 1678.91 ]
+Tick [ 4571 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 4571 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2417 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 4581 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 4613 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 4613 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2175 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 4623 ]: Thread [ 1 ] update approximate burst time, from : [ 1678.91 ], add [ 374.047 ], to [ 2052.95 ]
+Tick [ 4623 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 4623 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2427 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 4633 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 4713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 4713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2265 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 4813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 4813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2527 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 4913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 4913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2365 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 5013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 5013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2627 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 5055 ]: Thread [ 2 ] update approximate burst time, from : [ 931.719 ], add [ 737.641 ], to [ 1669.36 ]
+Tick [ 5055 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 5055 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2407 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 5065 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 5113 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 5113 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2685 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 5123 ]: Thread [ 2 ] update approximate burst time, from : [ 1669.36 ], add [ 373.82 ], to [ 2043.18 ]
+Tick [ 5123 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 5123 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2417 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 5133 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 5213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 5213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2775 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 5313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 5313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2517 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 5413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 5413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2875 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 5513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 5513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2617 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 5613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 5613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 2975 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 5713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 5713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2717 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 5813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 5813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3075 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 5913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 5913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2817 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 6013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 6013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3175 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 6113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 6113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 2917 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 6213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 6213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3275 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 6313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 6313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3017 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 6413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 6413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3375 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 6513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 6513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3117 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 6613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 6613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3475 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 6713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 6713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3217 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 6813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 6813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3575 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 6913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 6913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3317 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 6939 ]: Thread [ 1 ] update approximate burst time, from : [ 2052.95 ], add [ 774.023 ], to [ 2826.98 ]
+Tick [ 6939 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 6939 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3601 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 6949 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 7013 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 7013 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3391 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 7023 ]: Thread [ 1 ] update approximate burst time, from : [ 2826.98 ], add [ 392.012 ], to [ 3218.99 ]
+Tick [ 7023 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 7023 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3611 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 7033 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 7113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 7113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3481 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 7213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 7213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3711 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 7313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 7313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3581 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 7413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 7413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3811 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 7423 ]: Thread [ 2 ] update approximate burst time, from : [ 2043.18 ], add [ 773.91 ], to [ 2817.09 ]
+Tick [ 7423 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 7423 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3591 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 7433 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 7513 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 7513 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3901 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 7523 ]: Thread [ 2 ] update approximate burst time, from : [ 2817.09 ], add [ 391.955 ], to [ 3209.04 ]
+Tick [ 7523 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 7523 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3601 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 7533 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 7613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 7613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 3991 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 7713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 7713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3701 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 7813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 7813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4091 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 7913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 7913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3801 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 8013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 8013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4191 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 8113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 8113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 3901 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 8213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 8213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4291 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 8313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 8313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4001 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 8413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 8413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4391 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 8513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 8513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4101 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 8613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 8613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4491 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 8713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 8713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4201 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 8813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 8813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4591 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 8913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 8913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4301 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 9013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 9013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4691 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 9113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 9113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4401 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 9197 ]: Thread [ 1 ] update approximate burst time, from : [ 3218.99 ], add [ 778.006 ], to [ 3996.99 ]
+Tick [ 9197 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 9197 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4775 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 9207 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 9213 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 9213 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4417 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 9223 ]: Thread [ 1 ] update approximate burst time, from : [ 3996.99 ], add [ 394.003 ], to [ 4391 ]
+Tick [ 9223 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 9223 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4785 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 9233 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 9313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 9313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4507 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 9413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 9413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4885 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 9513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 9513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4607 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 9613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 9613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 4985 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 9713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 9713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4707 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 9813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 9813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5085 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 9881 ]: Thread [ 2 ] update approximate burst time, from : [ 3209.04 ], add [ 782.978 ], to [ 3992.02 ]
+Tick [ 9881 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 9881 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4775 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 9891 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 9913 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 9913 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5117 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 9923 ]: Thread [ 2 ] update approximate burst time, from : [ 3992.02 ], add [ 396.489 ], to [ 4388.51 ]
+Tick [ 9923 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 9923 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4785 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 9933 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 10013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 10013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5207 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 10113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 10113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4885 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 10213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 10213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5307 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 10313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 10313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 4985 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 10413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 10413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5407 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 10513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 10513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5085 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 10613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 10613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5507 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 10713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 10713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5185 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 10813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 10813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5607 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 10913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 10913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5285 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 11013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 11013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5707 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 11113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 11113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5385 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 11213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 11213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5807 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 11313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 11313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5485 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 11413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 11413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5907 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 11513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 11513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5585 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 11565 ]: Thread [ 1 ] update approximate burst time, from : [ 4391 ], add [ 784.001 ], to [ 5175 ]
+Tick [ 11565 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 11565 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5959 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 11575 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 11613 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 11613 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5633 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 11623 ]: Thread [ 1 ] update approximate burst time, from : [ 5175 ], add [ 397.001 ], to [ 5572 ]
+Tick [ 11623 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 11623 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 5969 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 11633 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 11713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 11713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5723 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 11813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 11813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6069 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 11913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 11913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5823 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 12013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 12013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6169 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 12113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 12113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5923 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 12213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 12213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6269 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 12249 ]: Thread [ 2 ] update approximate burst time, from : [ 4388.51 ], add [ 785.244 ], to [ 5173.76 ]
+Tick [ 12249 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 12249 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5959 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 12259 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 12313 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 12313 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6333 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 12323 ]: Thread [ 2 ] update approximate burst time, from : [ 5173.76 ], add [ 397.622 ], to [ 5571.38 ]
+Tick [ 12323 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 12323 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 5969 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 12333 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 12413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 12413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6423 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 12513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 12513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6069 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 12613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 12613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6523 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 12713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 12713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6169 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 12813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 12813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6623 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 12913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 12913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6269 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 13013 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 13013 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6723 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 13113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 13113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6369 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 13213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 13213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6823 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 13313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 13313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6469 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 13413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 13413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 6923 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 13513 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 13513 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6569 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 13613 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 13613 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7023 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 13713 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 13713 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6669 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 13813 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 13813 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7123 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 13913 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 13913 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6769 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 13933 ]: Thread [ 1 ] update approximate burst time, from : [ 5572 ], add [ 785.5 ], to [ 6357.5 ]
+Tick [ 13933 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 13933 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7143 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 13943 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 14013 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 14013 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6849 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 14023 ]: Thread [ 1 ] update approximate burst time, from : [ 6357.5 ], add [ 397.75 ], to [ 6755.25 ]
+Tick [ 14023 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 14023 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7153 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 14033 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 14113 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 14113 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 6939 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 14213 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 14213 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7253 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 14313 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 14313 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7039 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 14413 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 14413 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7353 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 14507 ]: Thread [ 2 ] update approximate burst time, from : [ 5571.38 ], add [ 780.811 ], to [ 6352.19 ]
+Tick [ 14507 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 14507 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7133 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 14517 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 14517 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 14517 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7363 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 14527 ]: Thread [ 2 ] update approximate burst time, from : [ 6352.19 ], add [ 395.406 ], to [ 6747.59 ]
+Tick [ 14527 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 14527 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7143 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 14537 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 14617 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 14617 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7453 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 14717 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 14717 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7243 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 14817 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 14817 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7553 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 14917 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 14917 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7343 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 15017 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 15017 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7653 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 15117 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 15117 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7443 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 15217 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 15217 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7753 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 15317 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 15317 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7543 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 15417 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 15417 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7853 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 15517 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 15517 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7643 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 15617 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 15617 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 7953 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 15717 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 15717 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7743 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 15817 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 15817 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8053 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 15917 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 15917 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7843 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 16017 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 16017 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8153 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 16117 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 16117 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 7943 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 16217 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 16217 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8253 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 16317 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 16317 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8043 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 16391 ]: Thread [ 1 ] update approximate burst time, from : [ 6755.25 ], add [ 785.875 ], to [ 7541.12 ]
+Tick [ 16391 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 16391 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8327 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 16401 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 16417 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 16417 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8069 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 16427 ]: Thread [ 1 ] update approximate burst time, from : [ 7541.12 ], add [ 397.938 ], to [ 7939.06 ]
+Tick [ 16427 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 16427 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8337 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 16437 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 16517 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 16517 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8159 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 16617 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 16617 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8437 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 16717 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 16717 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8259 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 16817 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 16817 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8537 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 16875 ]: Thread [ 2 ] update approximate burst time, from : [ 6747.59 ], add [ 784.703 ], to [ 7532.3 ]
+Tick [ 16875 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 16875 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8317 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 16885 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 16917 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 16917 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8579 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 16927 ]: Thread [ 2 ] update approximate burst time, from : [ 7532.3 ], add [ 397.351 ], to [ 7929.65 ]
+Tick [ 16927 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 16927 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8327 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 16937 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 17017 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 17017 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8669 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 17117 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 17117 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8427 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 17217 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 17217 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8769 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 17317 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 17317 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8527 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 17417 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 17417 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8869 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 17517 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 17517 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8627 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 17617 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 17617 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 8969 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 17717 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 17717 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8727 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 17817 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 17817 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9069 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 17917 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 17917 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8827 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 18017 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 18017 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9169 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 18117 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 18117 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 8927 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 18217 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 18217 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9269 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 18317 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 18317 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9027 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 18417 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 18417 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9369 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 18517 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 18517 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9127 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 18617 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 18617 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9469 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 18717 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 18717 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9227 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 18759 ]: Thread [ 1 ] update approximate burst time, from : [ 7939.06 ], add [ 785.969 ], to [ 8725.03 ]
+Tick [ 18759 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 18759 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9511 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 18769 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 18817 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 18817 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9285 ] ticks.
+Now in thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 18827 ]: Thread [ 1 ] update approximate burst time, from : [ 8725.03 ], add [ 397.984 ], to [ 9123.02 ]
+Tick [ 18827 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 18827 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9521 ] ticks.
+Now in thread: hw3t2
+Putting thread on ready list: hw3t1
+Tick [ 18837 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 18917 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 18917 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9375 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 19017 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 19017 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9621 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 19117 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 19117 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9475 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 19217 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 19217 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9721 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 19243 ]: Thread [ 2 ] update approximate burst time, from : [ 7929.65 ], add [ 785.676 ], to [ 8715.32 ]
+Tick [ 19243 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 19243 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9501 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 19253 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 19317 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 19317 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9795 ] ticks.
+Now in thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 19327 ]: Thread [ 2 ] update approximate burst time, from : [ 8715.32 ], add [ 397.838 ], to [ 9113.16 ]
+Tick [ 19327 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 19327 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9511 ] ticks.
+Now in thread: hw3t1
+Putting thread on ready list: hw3t2
+Tick [ 19337 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 19417 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 19417 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9885 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 19517 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 19517 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9611 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 19617 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 19617 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 9985 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 19717 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 19717 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9711 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 19817 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 19817 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 10085 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 19917 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 19917 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9811 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 20017 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 20017 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 10185 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 20117 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 20117 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 9911 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 20217 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 20217 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 10285 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 20317 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 20317 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 10011 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 20417 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 20417 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 10385 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 20517 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 20517 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 10111 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 20617 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 20617 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 10485 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 20717 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 20717 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 10211 ] ticks.
+Now in thread: hw3t1
+Yielding thread: hw3t1
+Putting thread on ready list: hw3t1
+Tick [ 20817 ]: Thread [ 1 ] is inserted into queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 20817 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 10585 ] ticks.
+Now in thread: hw3t2
+Yielding thread: hw3t2
+Putting thread on ready list: hw3t2
+Tick [ 20917 ]: Thread [ 2 ] is inserted into queue L[ 3 ]
+Switching from: hw3t2 to: hw3t1
+Tick [ 20917 ]: Thread [ 1 ] is now selected for execution, thread [ 2 ] is replaced, and it has executed [ 10311 ] ticks.
+Now in thread: hw3t1
+Finishing thread: hw3t1
+Sleeping thread: hw3t1
+Tick [ 21009 ]: Thread [ 1 ] update approximate burst time, from : [ 9123.02 ], add [ 776.992 ], to [ 9900.01 ]
+Tick [ 21009 ]: Thread [ 1 ] is removed from queue L[ 1 ]
+Switching from: hw3t1 to: hw3t2
+Tick [ 21009 ]: Thread [ 2 ] is now selected for execution, thread [ 1 ] is replaced, and it has executed [ 10677 ] ticks.
+Now in thread: hw3t2
+Deleting thread: hw3t1
+Yielding thread: hw3t2
+Yielding thread: hw3t2
+Yielding thread: hw3t2
+Yielding thread: hw3t2
+Finishing thread: hw3t2
+Sleeping thread: hw3t2
+Tick [ 21375 ]: Thread [ 2 ] update approximate burst time, from : [ 9113.16 ], add [ 1101.92 ], to [ 10215.1 ]
+Tick [ 21375 ]: Thread [ 2 ] is removed from queue L[ 3 ]
+
+Cleaning up after signal 2
