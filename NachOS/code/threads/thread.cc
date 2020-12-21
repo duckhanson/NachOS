@@ -39,7 +39,7 @@ Thread::Thread(char *threadName, int threadID) {
     stackTop = NULL;
     stack = NULL;
     status = JUST_CREATED;
-    burstTime = 0;
+    burstTime = 0.0;
     startTime = 0;
     waitingAge = 0;
     execPriority = 0;
@@ -255,10 +255,11 @@ void Thread::Sleep(bool finishing) {
                           << name << ", " << kernel->stats->totalTicks);
 
     accumulatedTime += (kernel->stats->totalTicks - startTime);
-    int nextBurstTime = 0.5 * accumulatedTime + 0.5 * burstTime;
+    double nextBurstTime = 0.5 * accumulatedTime + 0.5 * burstTime;
     DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << ID << " ] "
-                             << "update approximate burst time, from : [ " << burstTime << " ], add [ " << accumulatedTime << " ], to [ " << nextBurstTime << " ]");
+                             << "update approximate burst time, from : [ " << burstTime << " ], add [ " << nextBurstTime - (double) burstTime << " ], to [ " << nextBurstTime << " ]");
     this->setBurstTime(nextBurstTime);
+    this->resetWaitingAge();
     DEBUG(dbgSche, "Tick [ " << kernel->stats->totalTicks << " ]: Thread [ " << ID << " ] is removed from queue L[ " << kernel->scheduler->getQueueLabel() << " ]");
     status = BLOCKED;
     // cout << "debug Thread::Sleep " << name << "wait for Idle\n";

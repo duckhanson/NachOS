@@ -103,8 +103,8 @@ class Thread {
     int getID() { return (ID); }
     void Print() { cout << name; }
     void SelfTest(); // test whether thread impl is working
-    void setBurstTime(int t) { burstTime = t; }
-    int getBurstTime() { return burstTime; }
+    void setBurstTime(double t) { burstTime = t; }
+    double getBurstTime() { return burstTime; }
     void setStartTime(int t) { startTime = t; }
     int getStartTime() { return startTime; }
     void setPriority(int t);
@@ -123,7 +123,7 @@ class Thread {
     ThreadStatus status; // ready, running or blocked
     char *name;
     int ID;
-    int burstTime;
+    double burstTime;
     int startTime;
     int execPriority;
     int waitingAge;
