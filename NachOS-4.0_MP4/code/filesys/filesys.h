@@ -99,13 +99,66 @@ public:
 
 	void Print(); // List all the files and their contents
 
+	bool Create(char *name)
+	{
+		int fileDescriptor = OpenForWrite(name);
+
+		if (fileDescriptor == -1)
+			return FALSE;
+		Close(fileDescriptor);
+		return TRUE;
+	}
+	//The OpenFile function is used for open user program  [userprog/addrspace.cc]
+	OpenFile *Open(char *name)
+	{
+		int fileDescriptor = OpenForReadWrite(name, FALSE);
+		if (fileDescriptor == -1)
+			return NULL;
+		return new OpenFile(fileDescriptor);
+	}
+
+	//  The OpenAFile function is used for kernel open system call
+	OpenFileId OpenAFile(char *name)
+	{
+		F = Open(name);
+		return 1;
+	}
+	int WriteFile(char *buffer, int size, OpenFileId id)
+	{
+		if (size < 0)
+			return -1;
+		else
+			return F->Write(buffer, size);
+	}
+	int ReadFile(char *buffer, int size, OpenFileId id)
+	{
+		if (id < 1 || size < 0)
+			return -1;
+		if (F == NULL)
+		{
+			return -1;
+		}
+		else
+		{
+			return F->Read(buffer, size);
+		}
+	}
+	int CloseFile(OpenFileId id)
+	{
+		if (id < 1)
+			return -1;
+		if (F == NULL)
+		{
+			return -1;
+		}
+		else
+		{
+			delete F;
+			F = NULL;
+			return 1;
+		}
+	}
+
 private:
 	OpenFile *freeMapFile;	 // Bit map of free disk blocks,
-							 // represented as a file
-	OpenFile *directoryFile; // "Root" directory -- list of
-							 // file names, represented as a file
-};
-
-#endif // FILESYS
-
-#endif // FS_H
+							
