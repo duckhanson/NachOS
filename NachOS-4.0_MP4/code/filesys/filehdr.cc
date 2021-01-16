@@ -39,8 +39,10 @@ FileHeader::FileHeader()
 {
 	numBytes = -1;
 	numSectors = -1;
-	nextBlock = EmptyBlock;
-	memset(dataSectors, EmptyBlock, sizeof(dataSectors));
+	memset(dataL0Sectors, EmptyBlock, sizeof(dataL0Sectors));
+	memset(dataL1Sectors, EmptyBlock, sizeof(dataL1Sectors));
+	memset(dataL2Sectors, EmptyBlock, sizeof(dataL2Sectors));
+	memset(dataL3Sectors, EmptyBlock, sizeof(dataL3Sectors));
 }
 
 //----------------------------------------------------------------------
@@ -73,17 +75,29 @@ bool FileHeader::Allocate(PersistentBitmap *freeMap, int fileSize)
 	if (freeMap->NumClear() < numSectors)
 		return FALSE; // not enough space
 	int allocated = 0;
-	for (int i = 0; i < NumDirect && allocated < numSectors; ++i, ++allocated)
+	for (int i = 0; i < NumIndirect && allocated < numSectors; i++)
 	{ // allocate all sectors
-		dataSectors[i] = freeMap->FindAndSet();
-		ASSERT(dataSectors[i] >= 0);
-	}
-	if (allocated < numSectors)
-	{
-		nextBlock = freeMap->FindAndSet();
-		ASSERT(nextBlock >= 0);
-		LinkedBlock *lblcok;
-		lblcok->Allocate(freeMap, numSectors - allocated, nextBlock);
+		dataL0Sectors[i] = freeMap->FindAndSet();
+		ASSERT(dataL0Sectors[i] >= 0);
+		for (int j = 0; j < MaxBlocks && allocated < numSectors; j++)
+		{
+			dataL1Sectors[i][j] = freeMap->FindAndSet();
+			ASSERT(dataL1Sectors[i][j] >= 0);
+			for (int k = 0; k < MaxBlocks && allocated < numSectors; k++)
+			{
+				dataL2Sectors[i][j][k] = freeMap->FindAndSet();
+				ASSERT(dataL2Sectors[i][j][k] >= 0);
+				for (int l = 0; l < MaxBlocks && allocated < numSectors; l++)
+				{
+					dataL3Sectors[i][j][k][l] = freeMap->FindAndSet();
+					ASSERT(dataL3Sectors[i][j][k][l] >= 0);
+					allocated++;
+				}
+				kernel->synchDisk->WriteSector(dataL2Sectors[i][j][k], (char *)dataL3Sectors[i][j][k]);
+			}
+			kernel->synchDisk->WriteSector(dataL1Sectors[i][j], (char *)dataL2Sectors[i][j]);
+		}
+		kernel->synchDisk->WriteSector(dataL0Sectors[i], (char *)dataL1Sectors[i]);
 	}
 	DEBUG('e', "file header allocated\n");
 	return TRUE;
@@ -99,17 +113,27 @@ bool FileHeader::Allocate(PersistentBitmap *freeMap, int fileSize)
 void FileHeader::Deallocate(PersistentBitmap *freeMap)
 {
 	DEBUG('r', "beginning filehdr deallocation\n");
-	for (int i = 0; i < NumDirect; i++)
-	{
-		if (dataSectors[i] != EmptyBlock)
+	int deallocate = 0;
+	for (int i = 0; i < NumIndirect && deallocate < numSectors; i++)
+	{ // deallocate all sectors
+		ASSERT(dataL0Sectors[i] >= 0);
+		kernel->synchDisk->ReadSector(dataL0Sectors[i], (char*) dataL1Sectors[i]);
+		for (int j = 0; j < MaxBlocks && deallocate < numSectors; j++)
 		{
-			freeMap->Clear(dataSectors[i]);
+			ASSERT(dataL1Sectors[i][j] >= 0);
+			kernel->synchDisk->ReadSector(dataL1Sectors[i][j], (char*) dataL2Sectors[i][j]);
+			for (int k = 0; k < MaxBlocks && deallocate < numSectors; k++)
+			{
+				ASSERT(dataL2Sectors[i][j][k] >= 0);
+				kernel->synchDisk->ReadSector(dataL2Sectors[i][j][k], (char*) dataL3Sectors[i][j][k]);
+				for (int l = 0; l < MaxBlocks && deallocate < numSectors; l++)
+				{
+					ASSERT(dataL3Sectors[i][j][k][l] >= 0);
+					freeMap->Clear(dataL3Sectors[i][j][k][l]);
+					deallocate++;
+				}
+			}
 		}
-	}
-	LinkedBlock *lblock;
-	if (nextBlock != EmptyBlock)
-	{
-		lblock->Deallocate(freeMap, nextBlock);
 	}
 	DEBUG('r', "finished filehdr deallocation\n");
 }
@@ -123,8 +147,13 @@ void FileHeader::Deallocate(PersistentBitmap *freeMap)
 
 void FileHeader::FetchFrom(int sector)
 {
-	ASSERT(sector != EmptyBlock);
-	kernel->synchDisk->ReadSector(sector, (char *)this);
+	int data[MaxBlocks];
+	kernel->synchDisk->ReadSector(sector, (char *)data);
+	numBytes = data[0];
+	numSectors = data[1];
+	for (int i = 0; i < NumIndirect; i++) {
+		dataL0Sectors[i] = data[i + 2];
+	}
 }
 
 //----------------------------------------------------------------------
@@ -144,7 +173,14 @@ void FileHeader::WriteBack(int sector)
 		memcpy(buf + offset, &dataToBeWritten, sizeof(dataToBeWritten));
 		...
 	*/
-	kernel->synchDisk->WriteSector(sector, (char *)this);
+	int data[MaxBlocks];
+	data[0] = numBytes;
+	data[1] = numSectors;
+	for (int i = 0; i < NumIndirect; i++)
+	{
+		dataL0Sectors[i] = data[i + 2];
+	}
+	kernel->synchDisk->WriteSector(sector, (char *)data);
 }
 
 //----------------------------------------------------------------------
@@ -160,15 +196,11 @@ void FileHeader::WriteBack(int sector)
 int FileHeader::ByteToSector(int offset)
 {
 	int vBlock = offset / SectorSize;
-	if (vBlock < NumDirect)
-	{
-		return dataSectors[vBlock];
-	}
-	else
-	{
-		LinkedBlock *lblock;
-		return lblock->ByteToSector(vBlock - NumDirect, nextBlock);
-	}
+	int NumL3 = vBlock % MaxBlocks;
+	int NumL2 = (vBlock / MaxBlocks) % MaxBlocks;
+	int NumL1 = ((vBlock / MaxBlocks) / MaxBlocks) % MaxBlocks;
+	int NumL0 = ((vBlock / MaxBlocks) / MaxBlocks) / MaxBlocks;
+	return dataL3Sectors[NumL0][NumL1][NumL2][NumL3];
 }
 
 //----------------------------------------------------------------------
@@ -194,11 +226,11 @@ void FileHeader::Print()
 
 	printf("FileHeader contents.  File size: %d.  File blocks:\n", numBytes);
 	for (i = 0; i < numSectors; i++)
-		printf("%d ", dataSectors[i]);
+		printf("%d ", dataL0Sectors[i]);
 	printf("\nFile contents:\n");
 	for (i = k = 0; i < numSectors; i++)
 	{
-		kernel->synchDisk->ReadSector(dataSectors[i], data);
+		kernel->synchDisk->ReadSector(dataL0Sectors[i], data);
 		for (j = 0; (j < SectorSize) && (k < numBytes); j++, k++)
 		{
 			if ('\040' <= data[j] && data[j] <= '\176') // isprint(data[j])
@@ -209,73 +241,4 @@ void FileHeader::Print()
 		printf("\n");
 	}
 	delete[] data;
-}
-//----------------------------------------------------------------------
-// LinkedBlock::IndirectLinkedBlock
-// 	initialize elements in an LinkedBlock
-//	the data blocks pointed to by the file header.
-//----------------------------------------------------------------------
-
-LinkedBlock::LinkedBlock()
-{
-	nextBlock = EmptyBlock;
-	for (int i = 0; i < LinkedMaxBlocks; i++)
-		dataSectors[i] = EmptyBlock;
-}
-
-bool LinkedBlock::Allocate(PersistentBitmap *bitMap, int numSectors, int sector)
-{
-	for (int i = 0; i < LinkedMaxBlocks && numSectors > 0; i++, numSectors--) {
-		dataSectors[i] = bitMap->FindAndSet();
-		ASSERT(dataSectors[i] >= 0);
-	}
-	// need next linked block
-	if (numSectors > 0) {
-		nextBlock = bitMap->FindAndSet();
-		ASSERT(nextBlock >= 0);
-	}
-	WriteBack(sector);
-	if (numSectors > 0)
-		return Allocate(bitMap, numSectors, nextBlock);
-	return true;
-}
-
-void LinkedBlock::Deallocate(PersistentBitmap *bitMap, int sector)
-{
-	FetchFrom(sector);
-	for (int i = 0; i < LinkedMaxBlocks; i++)
-	{
-		if (dataSectors[i] == EmptyBlock)
-			return;
-		else
-			bitMap->Clear(dataSectors[i]);
-	}
-	if (nextBlock != EmptyBlock)
-		Deallocate(bitMap, nextBlock);
-	bitMap->Clear(sector);
-}
-
-void LinkedBlock::FetchFrom(int sector)
-{
-	ASSERT(sector != EmptyBlock);
-	kernel->synchDisk->ReadSector(sector, (char *)this);
-}
-
-void LinkedBlock::WriteBack(int sector)
-{
-	kernel->synchDisk->WriteSector(sector, (char *)this);
-}
-
-int LinkedBlock::ByteToSector(int sectorOffset, int sector)
-{
-	ASSERT(sector != EmptyBlock);
-	FetchFrom(sector);
-	if (sectorOffset < LinkedMaxBlocks)
-	{
-		return dataSectors[sectorOffset];
-	}
-	else
-	{
-		return ByteToSector(sectorOffset - LinkedMaxBlocks, nextBlock);
-	}
 }

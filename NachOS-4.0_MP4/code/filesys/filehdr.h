@@ -17,10 +17,9 @@
 #include "disk.h"
 #include "pbitmap.h"
 
-#define NumDirect (int)(((SectorSize) / sizeof(int)) - 3)
 #define MaxBlocks (int)(SectorSize / sizeof(int))
-#define LinkedMaxBlocks (int)(MaxBlocks - 1)
-#define MaxFileSize (int)(NumDirect * SectorSize)
+#define NumIndirect (int)(MaxBlocks - 2)
+// #define MaxFileSize (int)(NumDirect * SectorSize)
 #define EmptyBlock -1
 
 // The following class defines the Nachos "file header" (in UNIX terms,
@@ -82,30 +81,12 @@ private:
 
 	int numBytes;	// Number of bytes in the file
 	int numSectors; // Number of data sectors in the file
-	int nextBlock;
-	int dataSectors[NumDirect];
+	int allocType;
+	int dataL0Sectors[NumIndirect];
+	int dataL1Sectors[NumIndirect][MaxBlocks];
+	int dataL2Sectors[NumIndirect][MaxBlocks][MaxBlocks];
+	int dataL3Sectors[NumIndirect][MaxBlocks][MaxBlocks][MaxBlocks];
 };
 
-class LinkedBlock
-{
-public:
-	LinkedBlock();
-	bool Allocate(PersistentBitmap *bitMap, int fileSize, int sector); // Initialize a file header,
-														   //  including allocating space
-														   //  on disk for the file data
-	void Deallocate(PersistentBitmap *bitMap, int sector);			   // De-allocate this file's
-														   //  data blocks
-
-	void FetchFrom(int sectorNumber); // Initialize file header from disk
-	void WriteBack(int sectorNumber); // Write modifications to file header
-									  //  back to disk
-
-	int ByteToSector(int sectorOffset, int sector); // Convert a byte offset into the file
-								  // to the disk sector containing
-								  // the byte
-private:
-	int nextBlock;
-	int dataSectors[LinkedMaxBlocks];
-};
 
 #endif // FILEHDR_H
