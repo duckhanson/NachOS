@@ -17,12 +17,12 @@
 #include "disk.h"
 #include "pbitmap.h"
 
-#define NumDirect ((SectorSize - 2 * sizeof(int)) / sizeof(int))
-#define MaxFileSize (NumDirect * SectorSize)
-#define NumActualSectors (SectorSize / sizeof(int))
-#define NumLevelOne ((SectorSize / sizeof(int)) - 1)	// one for index sector space
-#define NumLevelTwo ((SectorSize / sizeof(int)) - 1)	// one for index sector space
-#define NumLevelThree (SectorSize / sizeof(int))
+#define NumDirect (int)(((SectorSize) / sizeof(int)) - 3)
+#define MaxBlocks (int)(SectorSize / sizeof(int))
+#define LinkedMaxBlocks (int)(MaxBlocks - 1)
+#define MaxFileSize (int)(NumDirect * SectorSize)
+#define EmptyBlock -1
+
 // The following class defines the Nachos "file header" (in UNIX terms,
 // the "i-node"), describing where on disk to find all of the data in the file.
 // The file header is organized as a simple table of pointers to
@@ -80,14 +80,32 @@ private:
 		
 	*/
 
-	int numBytes;				// Number of bytes in the file
-	int numSectors;				// Number of data sectors in the file
-	int dataSectors[NumDirect][NumActualSectors][NumActualSectors][NumActualSectors];
-	// Disk sector numbers for each data
-	// block in the file
-	int sectorL0[NumDirect];
-	int sectorL1[NumDirect][NumLevelOne];
-	int sectorL2[NumDirect][NumLevelOne][NumLevelTwo];
+	int numBytes;	// Number of bytes in the file
+	int numSectors; // Number of data sectors in the file
+	int nextBlock;
+	int dataSectors[NumDirect];
+};
+
+class LinkedBlock
+{
+public:
+	LinkedBlock();
+	bool Allocate(PersistentBitmap *bitMap, int fileSize, int sector); // Initialize a file header,
+														   //  including allocating space
+														   //  on disk for the file data
+	void Deallocate(PersistentBitmap *bitMap, int sector);			   // De-allocate this file's
+														   //  data blocks
+
+	void FetchFrom(int sectorNumber); // Initialize file header from disk
+	void WriteBack(int sectorNumber); // Write modifications to file header
+									  //  back to disk
+
+	int ByteToSector(int sectorOffset, int sector); // Convert a byte offset into the file
+								  // to the disk sector containing
+								  // the byte
+private:
+	int nextBlock;
+	int dataSectors[LinkedMaxBlocks];
 };
 
 #endif // FILEHDR_H
