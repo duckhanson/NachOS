@@ -19,7 +19,10 @@
 
 #define NumDirect ((SectorSize - 2 * sizeof(int)) / sizeof(int))
 #define MaxFileSize (NumDirect * SectorSize)
-
+#define NumActualSectors (SectorSize / sizeof(int))
+#define NumLevelOne ((SectorSize / sizeof(int)) - 1)	// one for index sector space
+#define NumLevelTwo ((SectorSize / sizeof(int)) - 1)	// one for index sector space
+#define NumLevelThree (SectorSize / sizeof(int))
 // The following class defines the Nachos "file header" (in UNIX terms,
 // the "i-node"), describing where on disk to find all of the data in the file.
 // The file header is organized as a simple table of pointers to
@@ -79,8 +82,12 @@ private:
 
 	int numBytes;				// Number of bytes in the file
 	int numSectors;				// Number of data sectors in the file
-	int dataSectors[NumDirect]; // Disk sector numbers for each data
-								// block in the file
+	int dataSectors[NumDirect][NumActualSectors][NumActualSectors][NumActualSectors];
+	// Disk sector numbers for each data
+	// block in the file
+	int sectorL0[NumDirect];
+	int sectorL1[NumDirect][NumLevelOne];
+	int sectorL2[NumDirect][NumLevelOne][NumLevelTwo];
 };
 
 #endif // FILEHDR_H

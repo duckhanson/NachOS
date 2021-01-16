@@ -30,7 +30,7 @@ int SysCreate(char *filename, int size)
   // return value
   // 1: success
   // 0: failed
-  return kernel->fileSystem->Create(filename);
+  return kernel->fileSystem->Create(filename, size);
 }
 
 //When you finish the function "OpenAFile", you can remove the comment below.
