@@ -200,6 +200,10 @@ int FileHeader::ByteToSector(int offset)
 	int NumL2 = (vBlock / MaxBlocks) % MaxBlocks;
 	int NumL1 = ((vBlock / MaxBlocks) / MaxBlocks) % MaxBlocks;
 	int NumL0 = ((vBlock / MaxBlocks) / MaxBlocks) / MaxBlocks;
+	kernel->synchDisk->ReadSector(dataL0Sectors[NumL0], (char*) dataL1Sectors[NumL0]);
+	kernel->synchDisk->ReadSector(dataL1Sectors[NumL0][NumL1], (char *)dataL2Sectors[NumL0][NumL1]);
+	kernel->synchDisk->ReadSector(dataL2Sectors[NumL0][NumL1][NumL2], (char *)dataL3Sectors[NumL0][NumL1][NumL2]);
+
 	return dataL3Sectors[NumL0][NumL1][NumL2][NumL3];
 }
 

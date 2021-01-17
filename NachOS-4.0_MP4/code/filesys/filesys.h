@@ -115,9 +115,7 @@ public:
 	}
 	int ReadFile(char *buffer, int size, OpenFileId id)
 	{
-		if (id < 1 || size < 0)
-			return -1;
-		if (F == NULL)
+		if (F == NULL || id < 1 || size < 0)
 		{
 			return -1;
 		}
