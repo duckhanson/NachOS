@@ -19,7 +19,8 @@
 #ifndef MaxBlocks
 #define MaxBlocks (int)(SectorSize / sizeof(int))
 #endif
-#define NumIndirect (int)((SectorSize / sizeof(int)) - 2)
+#define NumLinkedDataSectors (int)((SectorSize / sizeof(int)) - 1)
+#define NumDirect (int)((SectorSize / sizeof(int)) - 3)
 // #define MaxFileSize (int)(NumDirect * SectorSize)
 #define EmptyBlock -1
 
@@ -38,6 +39,29 @@
 // by allocating blocks for the file (if it is a new file), or by
 // reading it from disk.
 
+class LinkedBlock
+{
+public:
+	// MP4 mod tag
+	LinkedBlock(); // dummy constructor to keep valgrind happy
+	~LinkedBlock();
+
+	bool Allocate(PersistentBitmap *bitMap, int numSector, int sector); // Initialize a file header,
+														   //  including allocating space
+														   //  on disk for the file data
+	void Deallocate(PersistentBitmap *bitMap, int sector);			   // De-allocate this file's
+														   //  data blocks
+	void FetchFrom(int sectorNumber); // Initialize file header from disk
+	void WriteBack(int sectorNumber); // Write modifications to file header
+									  //  back to disk
+	int ByteToSector(int vBlock); // Convert a byte offset into the file
+								  // to the disk sector containing
+								  // the byte
+private:
+	int nextBlock;
+	int dataSectors[NumLinkedDataSectors];
+	LinkedBlock *nxtPtr;
+};
 class FileHeader
 {
 public:
@@ -82,9 +106,9 @@ private:
 
 	int numBytes;	// Number of bytes in the file
 	int numSectors; // Number of data sectors in the file
-	int allocType;
-	int dataSectors[NumIndirect * MaxBlocks * MaxBlocks * MaxBlocks];
-	int virDataSectors[NumIndirect * MaxBlocks * MaxBlocks * MaxBlocks];
+	int nextBlock;
+	int dataSectors[NumDirect];
+	LinkedBlock *nxtPtr;
 };
 
 

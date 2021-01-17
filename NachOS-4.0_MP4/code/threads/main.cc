@@ -154,8 +154,17 @@ void Print(char *name)
 static void CreateDirectory(char *name)
 {
     // MP4 Assignment
+    kernel->fileSystem->CreateDir(name);
+}
+//--------------------------------------------------------------
+void RecursiveList(char *name) {
+
 }
 
+//--------------------------------------------------------------
+void DirList(char *name) {
+
+}
 //----------------------------------------------------------------------
 // main
 // 	Bootstrap the operating system kernel.
@@ -347,6 +356,14 @@ int main(int argc, char **argv)
     if (printFileName != NULL)
     {
         Print(printFileName);
+    }
+    if (recursiveListFlag)
+    {
+        RecursiveList(listDirectoryName);
+    }
+    if (dirListFlag) 
+    {
+        DirList(listDirectoryName);
     }
 #endif // FILESYS_STUB
 

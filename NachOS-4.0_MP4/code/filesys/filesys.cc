@@ -228,6 +228,68 @@ bool FileSystem::Create(char *name, int initialSize)
     delete directory;
     return success;
 }
+bool FileSystem::CreateDir(char *name)
+{
+    Directory *directory;
+    PersistentBitmap *freeMap;
+    FileHeader *dirHdr;
+    Directory *addDir;
+    OpenFile *addDirFile;
+    int sector;
+    bool success;
+
+    DEBUG(dbgFile, "Creating dir " << name << " size " << DirectoryFileSize);
+
+    directory = new Directory(NumDirEntries);
+    directory->FetchFrom(directoryFile);
+
+    if (directory->Find(name) != -1)
+        success = FALSE; // file is already in directory
+    else
+    {
+        freeMap = new PersistentBitmap(freeMapFile, NumSectors);
+        sector = freeMap->FindAndSet(); // find a sector to hold the file header
+        if (sector == -1)
+            success = FALSE; // no free block for file header
+        else if (!directory->Add(name, sector))
+            success = FALSE; // no space in directory
+        else
+        {
+            dirHdr = new FileHeader;
+            if (!dirHdr->Allocate(freeMap, DirectoryFileSize))
+                success = FALSE; // no space on disk for data
+            else
+            {
+                success = TRUE;
+                // everthing worked, flush all changes back to disk
+                dirHdr->WriteBack(sector);
+                addDirFile = new OpenFile(sector);   
+                addDir->WriteBack(addDirFile);
+                directory->WriteBack(directoryFile);
+                freeMap->WriteBack(freeMapFile);
+            }
+            delete dirHdr;
+        }
+        delete freeMap;
+    }
+    delete addDir;
+    delete directory;
+    return success;
+}
+
+void FileSystem::Split(char *name) {
+    char parName[10];
+    for (int i = 1; i < 10; i++) {
+        if (name[i] != '/')
+            parName[i - 1] = name[i];
+        else
+            break;
+    }
+    OpenFile *openFile = Open(parName);
+    Directory *directory = new Directory(NumDirEntries);
+    directory->FetchFrom(openFile);
+    
+}
 
 //----------------------------------------------------------------------
 // FileSystem::Open
@@ -244,9 +306,9 @@ OpenFile * FileSystem::Open(char *name)
     Directory *directory = new Directory(NumDirEntries);
     OpenFile *openFile = NULL;
     int sector;
-
     DEBUG(dbgFile, "Opening file" << name);
     directory->FetchFrom(directoryFile);
+
     sector = directory->Find(name);
     if (sector >= 0)
         openFile = new OpenFile(sector); // name was found in directory

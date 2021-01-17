@@ -90,6 +90,7 @@ public:
 
 	bool Create(char *name, int initialSize);
 	// Create a file (UNIX creat)
+	bool CreateDir(char *name);
 
 	OpenFile *Open(char *name); // Open a file (UNIX open)
 
@@ -98,6 +99,8 @@ public:
 	void List(); // List all the files in the file system
 
 	void Print(); // List all the files and their contents
+
+	void Split(char *name);
 
 
 	//  The OpenAFile function is used for kernel open system call
