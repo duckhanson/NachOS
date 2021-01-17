@@ -16,9 +16,10 @@
 
 #include "disk.h"
 #include "pbitmap.h"
-
+#ifndef MaxBlocks
 #define MaxBlocks (int)(SectorSize / sizeof(int))
-#define NumIndirect (int)(MaxBlocks - 2)
+#endif
+#define NumIndirect (int)((SectorSize / sizeof(int)) - 2)
 // #define MaxFileSize (int)(NumDirect * SectorSize)
 #define EmptyBlock -1
 
@@ -82,10 +83,8 @@ private:
 	int numBytes;	// Number of bytes in the file
 	int numSectors; // Number of data sectors in the file
 	int allocType;
-	int dataL0Sectors[NumIndirect];
-	int dataL1Sectors[NumIndirect][MaxBlocks];
-	int dataL2Sectors[NumIndirect][MaxBlocks][MaxBlocks];
-	int dataL3Sectors[NumIndirect][MaxBlocks][MaxBlocks][MaxBlocks];
+	int dataSectors[NumIndirect * MaxBlocks * MaxBlocks * MaxBlocks];
+	int virDataSectors[NumIndirect * MaxBlocks * MaxBlocks * MaxBlocks];
 };
 
 
