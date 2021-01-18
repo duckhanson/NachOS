@@ -90,17 +90,17 @@ public:
 
 	bool Create(char *name, int initialSize);
 	// Create a file (UNIX creat)
-	bool CreateDir(char *name);
+	bool CreateDir(char *name, int curDirSector);
 
 	OpenFile *Open(char *name); // Open a file (UNIX open)
 
 	bool Remove(char *name); // Delete a file (UNIX unlink)
 
 	void List(); // List all the files in the file system
-
+	void RecursiveList();
 	void Print(); // List all the files and their contents
 
-	void Split(char *name);
+	OpenFile *Split(char *&name, int curDirHdrSector);
 
 
 	//  The OpenAFile function is used for kernel open system call

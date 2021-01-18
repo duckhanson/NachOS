@@ -37,6 +37,7 @@ public:
                                    //   FileHeader for this file
     char name[FileNameMaxLen + 1]; // Text name for file, with +1 for
                                    // the trailing '\0'
+    bool isDir = false;
 };
 
 // The following class defines a UNIX-like "directory".  Each entry in
@@ -63,9 +64,10 @@ public:
     int Find(char *name); // Find the sector number of the
                           // FileHeader for file: "name"
 
-    bool Add(char *name, int newSector); // Add a file name into the directory
+    bool Add(char *name, int newSector, bool isDir); // Add a file name into the directory
 
     bool Remove(char *name); // Remove a file from the directory
+    void RecursiveList(int curDirSector, int level);
 
     void List();  // Print the names of all the files
                   //  in the directory

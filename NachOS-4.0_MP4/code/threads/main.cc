@@ -154,17 +154,17 @@ void Print(char *name)
 static void CreateDirectory(char *name)
 {
     // MP4 Assignment
-    kernel->fileSystem->CreateDir(name);
+    kernel->fileSystem->CreateDir(name, 1);
 }
-//--------------------------------------------------------------
-void RecursiveList(char *name) {
+// //--------------------------------------------------------------
+// void RecursiveList(char *name) {
+//     kernel->fileSystem->RecursiveList();
+// }
 
-}
-
-//--------------------------------------------------------------
-void DirList(char *name) {
-
-}
+// //--------------------------------------------------------------
+// void DirList(char *name) {
+//     kernel->fileSystem->List();
+// }
 //----------------------------------------------------------------------
 // main
 // 	Bootstrap the operating system kernel.
@@ -359,11 +359,7 @@ int main(int argc, char **argv)
     }
     if (recursiveListFlag)
     {
-        RecursiveList(listDirectoryName);
-    }
-    if (dirListFlag) 
-    {
-        DirList(listDirectoryName);
+        kernel->fileSystem->RecursiveList();
     }
 #endif // FILESYS_STUB
 

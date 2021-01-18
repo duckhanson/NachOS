@@ -42,8 +42,10 @@ Directory::Directory(int size)
     memset(table, 0, sizeof(DirectoryEntry) * size); // dummy operation to keep valgrind happy
 
     tableSize = size;
-    for (int i = 0; i < tableSize; i++)
+    for (int i = 0; i < tableSize; i++) {
         table[i].inUse = FALSE;
+        table[i].isDir = FALSE;
+    }
 }
 
 //----------------------------------------------------------------------
@@ -125,7 +127,7 @@ int Directory::Find(char *name)
 //	"newSector" -- the disk sector containing the added file's header
 //----------------------------------------------------------------------
 
-bool Directory::Add(char *name, int newSector)
+bool Directory::Add(char *name, int newSector, bool isDir = false)
 {
     if (FindIndex(name) != -1)
         return FALSE;
@@ -134,6 +136,7 @@ bool Directory::Add(char *name, int newSector)
         if (!table[i].inUse)
         {
             table[i].inUse = TRUE;
+            table[i].isDir = isDir;
             strncpy(table[i].name, name, FileNameMaxLen);
             table[i].sector = newSector;
             return TRUE;
@@ -169,6 +172,21 @@ void Directory::List()
     for (int i = 0; i < tableSize; i++)
         if (table[i].inUse)
             printf("%s\n", table[i].name);
+}
+
+void Directory::RecursiveList(int curDirSector, int level)
+{
+    OpenFile *curDirHdr = new OpenFile(curDirSector);
+    for (int i = 0; i < tableSize; i++) {
+        if (table[i].inUse) {
+            for (int j = 0; j < level; j++)
+                printf(" ");
+            printf("| %s\n", table[i].name);
+            if (table[i].isDir) {
+                RecursiveList(table[i].sector, level + 1);
+            } 
+        }
+    }
 }
 
 //----------------------------------------------------------------------

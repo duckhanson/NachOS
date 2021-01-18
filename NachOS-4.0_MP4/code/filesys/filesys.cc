@@ -196,8 +196,7 @@ bool FileSystem::Create(char *name, int initialSize)
     DEBUG(dbgFile, "Creating file " << name << " size " << initialSize);
 
     directory = new Directory(NumDirEntries);
-    directory->FetchFrom(directoryFile);
-
+    directory->FetchFrom(Split(name, DirectorySector));
     if (directory->Find(name) != -1)
         success = FALSE; // file is already in directory
     else
@@ -206,7 +205,7 @@ bool FileSystem::Create(char *name, int initialSize)
         sector = freeMap->FindAndSet(); // find a sector to hold the file header
         if (sector == -1)
             success = FALSE; // no free block for file header
-        else if (!directory->Add(name, sector))
+        else if (!directory->Add(name, sector, false))
             success = FALSE; // no space in directory
         else
         {
@@ -228,34 +227,46 @@ bool FileSystem::Create(char *name, int initialSize)
     delete directory;
     return success;
 }
-bool FileSystem::CreateDir(char *name)
+bool FileSystem::CreateDir(char *name, int curDirSecotor)
 {
-    Directory *directory;
     PersistentBitmap *freeMap;
-    FileHeader *dirHdr;
+    Directory *directory;
     Directory *addDir;
+    FileHeader *dirHdr = new FileHeader;
+    FileHeader *addDirHdr = new FileHeader;
+    OpenFile *dirFile;
     OpenFile *addDirFile;
     int sector;
     bool success;
 
     DEBUG(dbgFile, "Creating dir " << name << " size " << DirectoryFileSize);
-
+    addDir = new Directory(NumDirEntries);
     directory = new Directory(NumDirEntries);
-    directory->FetchFrom(directoryFile);
-
-    if (directory->Find(name) != -1)
-        success = FALSE; // file is already in directory
-    else
+    dirFile = new OpenFile(curDirSecotor);
+    directory->FetchFrom(dirFile);
+    
+    char splitName[10];
+    int i;
+    bool stop = false;
+    for (i = 1; i < 10; i++) {
+        if (name[i] == '\0' || name[i] == '/')
+            break;
+        else 
+            splitName[i] = name[i - 1];
+    }
+    if (name[i] == '\0')
+        stop = true;
+    name = name + i;
+    if (directory->Find(splitName) == -1)
     {
         freeMap = new PersistentBitmap(freeMapFile, NumSectors);
         sector = freeMap->FindAndSet(); // find a sector to hold the file header
         if (sector == -1)
             success = FALSE; // no free block for file header
-        else if (!directory->Add(name, sector))
+        else if (!directory->Add(splitName, sector, true))
             success = FALSE; // no space in directory
         else
         {
-            dirHdr = new FileHeader;
             if (!dirHdr->Allocate(freeMap, DirectoryFileSize))
                 success = FALSE; // no space on disk for data
             else
@@ -263,7 +274,7 @@ bool FileSystem::CreateDir(char *name)
                 success = TRUE;
                 // everthing worked, flush all changes back to disk
                 dirHdr->WriteBack(sector);
-                addDirFile = new OpenFile(sector);   
+                addDirFile = new OpenFile(sector);
                 addDir->WriteBack(addDirFile);
                 directory->WriteBack(directoryFile);
                 freeMap->WriteBack(freeMapFile);
@@ -272,23 +283,33 @@ bool FileSystem::CreateDir(char *name)
         }
         delete freeMap;
     }
-    delete addDir;
-    delete directory;
-    return success;
+    if (stop)
+        return true;
+    return CreateDir(name, directory->Find(splitName));
 }
 
-void FileSystem::Split(char *name) {
+OpenFile *FileSystem::Split(char *&name, int curDirHdrSector)
+{
     char parName[10];
-    for (int i = 1; i < 10; i++) {
-        if (name[i] != '/')
+    Directory *directory = new Directory(NumDirEntries);
+    OpenFile *openFile = new OpenFile(curDirHdrSector);
+    int i;
+    for (i = 0; i < 10; i++)
+    {
+        if (name[i] != '/' && name[i] != '\0')
             parName[i - 1] = name[i];
         else
             break;
     }
-    OpenFile *openFile = Open(parName);
-    Directory *directory = new Directory(NumDirEntries);
-    directory->FetchFrom(openFile);
-    
+    int sectorFind = directory->Find(parName);
+    if (name[i] == '\0' || sectorFind == -1) {
+        return openFile;
+    } else {
+        directory->FetchFrom(openFile);
+        name = name + i;
+        return Split(name, sectorFind);
+    }
+
 }
 
 //----------------------------------------------------------------------
@@ -301,14 +322,14 @@ void FileSystem::Split(char *name) {
 //	"name" -- the text name of the file to be opened
 //----------------------------------------------------------------------
 
-OpenFile * FileSystem::Open(char *name)
+OpenFile *FileSystem::Open(char *name)
 {
     Directory *directory = new Directory(NumDirEntries);
     OpenFile *openFile = NULL;
     int sector;
     DEBUG(dbgFile, "Opening file" << name);
-    directory->FetchFrom(directoryFile);
-
+    directory->FetchFrom(Split(name, DirectorySector));
+    
     sector = directory->Find(name);
     if (sector >= 0)
         openFile = new OpenFile(sector); // name was found in directory
@@ -338,7 +359,7 @@ bool FileSystem::Remove(char *name)
     int sector;
 
     directory = new Directory(NumDirEntries);
-    directory->FetchFrom(directoryFile);
+    directory->FetchFrom(Split(name, DirectorySector));
     sector = directory->Find(name);
     if (sector == -1)
     {
@@ -374,6 +395,13 @@ void FileSystem::List()
     directory->FetchFrom(directoryFile);
     directory->List();
     delete directory;
+}
+
+void FileSystem::RecursiveList()
+{
+    Directory *directory = new Directory(NumDirEntries);
+    directory->FetchFrom(directoryFile);
+    directory->RecursiveList(DirectorySector, 0);
 }
 
 //----------------------------------------------------------------------
